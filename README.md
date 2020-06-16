@@ -1,5 +1,9 @@
 # taskwarrior-lib
 
+[![npm version](https://badgen.net/npm/v/taskwarrior-lib)](https://www.npmjs.com/package/taskwarrior-lib)
+[![license](https://badgen.net/github/license/dcsunset/taskwarrior-lib)](https://github.com/DCsunset/taskwarrior-lib)
+
+
 A Node.js library for interacting with taskwarrior
 
 ## Installation
