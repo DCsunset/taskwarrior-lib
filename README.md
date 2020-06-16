@@ -10,6 +10,9 @@ npm install taskwarrior-lib
 
 ## Usage
 
+The following examples are using ES modules,
+and CommonJS modules are also supported.
+
 To import the library:
 
 ```js
