@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { Task, TaskUUID } from '../types';
+import { Task } from '../types';
 
 export class TaskwarriorLib {
 	constructor() {
@@ -34,7 +34,7 @@ export class TaskwarriorLib {
 	}
 
 	/**
-	 * Delete tasks (use uuid)
+	 * Delete tasks (uuid must be present)
 	 * 
 	 * @param tasks Task[]
 	 */

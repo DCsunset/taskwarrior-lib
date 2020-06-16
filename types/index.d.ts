@@ -1,9 +1,46 @@
-export declare type TaskStatus = 'pending' | 'deleted' | 'completed' | 'waiting' | 'recurring';
+export declare class TaskwarriorLib {
+	constructor();
+
+	/**
+	 * Execute task command
+	 * @param args Arguments
+	 */
+	executeCommand(args: string, input?: string): string;
+
+	/**
+	 * Calcuate an expression
+	 * @param expression An expression
+	 */
+	calc(expression?: string): string | undefined;
+
+	/**
+	 * Load from taskwarrior
+	 */
+	load(filters?: string): Task[];
+
+	/**
+	 * Delete tasks (uuid must be present)
+	 * 
+	 * @param tasks Task[]
+	 */
+	del(tasks: Task[]): string;
+
+	/**
+	 * Update tasks:
+	 *  add tasks if no uuid is specified;
+	 *  modify tasks if the uuid exists.
+	 * 
+	 * @param tasks Task[]
+	 */
+	update(tasks: Task[]): string;
+}
+
+export declare type TaskStatus = 'pending' | 'deleted' | 'completed' | 'waiting' | 'recurring'
 
 export declare type TaskAnnotation = {
 	entry: string,
 	description: string
-};
+}
 
 export declare type TaskPriority = 'H' | 'M' | 'L';
 
@@ -29,8 +66,4 @@ export declare type Task = {
 	depends?: string,
 	tags?: string[],
 	annotations?: TaskAnnotation[]
-};
-
-export declare interface TaskUUID {
-	uuid: string
 }
