@@ -12,6 +12,10 @@ A Node.js library for interacting with taskwarrior
 npm install taskwarrior-lib
 ```
 
+## Requirements
+
+* [Taskwarrior](https://taskwarrior.org/) v2.4.5 or above (which supports `import` command)
+
 ## Usage
 
 The following examples are using ES modules,
