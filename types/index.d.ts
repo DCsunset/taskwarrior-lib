@@ -1,5 +1,10 @@
 export declare class TaskwarriorLib {
-	constructor();
+	/**
+	 * Create a Taskwarrior instance 
+	 * @param rcPath configuration path
+	 * @param dataPath taskwarrior data path
+	 */
+	constructor(rcPath?: string, dataPath?: string);
 
 	/**
 	 * Execute task command

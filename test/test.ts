@@ -1,5 +1,10 @@
 import { TaskwarriorLib } from '../lib';
-const taskwarrior = new TaskwarriorLib();
+import * as path from 'path';
+
+const taskwarrior = new TaskwarriorLib(
+	path.join(__dirname, '.taskrc'),
+	path.join(__dirname, '.task')
+);
 
 // Add tasks
 /*
@@ -30,4 +35,4 @@ console.log(msg);
 */
 
 // Delete tasks
-taskwarrior.del(tasks.slice(tasks.length - 1));
+// taskwarrior.del(tasks.slice(tasks.length - 1));

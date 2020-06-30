@@ -2,7 +2,10 @@ import { execSync } from 'child_process';
 import { Task } from '../types';
 
 export class TaskwarriorLib {
-	constructor() {
+	private env: string;
+
+	constructor(rcPath?: string, dataPath?: string) {
+		this.env = `TASKRC=${rcPath ?? '~/.taskrc'} TASKDATA=${dataPath ?? '~/.task'}`;
 	}
 
 	/**
@@ -10,7 +13,7 @@ export class TaskwarriorLib {
 	 * @param args Arguments
 	 */
 	executeCommand(args: string, input?: string) {
-		const result = execSync(`task rc.confirmation=off ${args}`, {
+		const result = execSync(`${this.env} task rc.confirmation=off ${args}`, {
 			encoding: 'utf8',
 			input
 		});
