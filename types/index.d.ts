@@ -1,8 +1,8 @@
 export declare class TaskwarriorLib {
 	/**
 	 * Create a Taskwarrior instance 
-	 * @param rcPath configuration path
-	 * @param dataPath taskwarrior data path
+	 * @param rcPath configuration path (default: ~/.taskrc)
+	 * @param dataPath taskwarrior data path (default: ~/.task)
 	 */
 	constructor(rcPath?: string, dataPath?: string);
 
