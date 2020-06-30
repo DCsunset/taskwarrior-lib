@@ -28,6 +28,15 @@ import { TaskwarriorLib } from 'taskwarrior-lib';
 const taskwarrior = new TaskwarriorLib();
 ```
 
+Or you can specify the taskwarrior config path and data path:
+
+```js
+const taskwarrior = new TaskwarriorLib(
+	'~/.taskrc',
+	'~/.task'
+);
+```
+
 To add tasks:
 
 ```js
