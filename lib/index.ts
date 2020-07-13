@@ -17,7 +17,7 @@ export class TaskwarriorLib {
 	 * @param args Arguments
 	 */
 	executeCommand(args: string, input?: string) {
-		const result = execSync(`${this.env} task rc.confirmation=off ${args}`, {
+		const result = execSync(`${this.env} task rc.confirmation=no rc.recurrence.confirmation=no rc.dependency.confirmation=no ${args}`, {
 			encoding: 'utf8',
 			input
 		});
