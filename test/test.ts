@@ -7,19 +7,31 @@ const taskwarrior = new TaskwarriorLib(
 );
 
 // Add tasks
-/*
-let msg = taskwarrior.update([
-	{
-		description: 'test 1',
-		priority: 'L'
-	},
-	{
-		description: 'test 2',
-		priority: 'M'
-	}
-]);
-console.log(msg);
-*/
+// let msg = taskwarrior.update([
+// 	{
+// 		description: 'test 1',
+// 		priority: 'L'
+// 	},
+// 	{
+// 		description: 'test 2',
+// 		priority: 'M'
+// 	}
+// ]);
+// console.log(msg);
+
+try {
+	// Must throw
+	taskwarrior.update([
+		{
+			description: 'test 2',
+			due: '1d',
+			priority: 'M'
+		}
+	]);
+	process.exit(1);
+}
+catch (err) {
+}
 
 // Load tasks
 const tasks = taskwarrior.load('status:pending');
