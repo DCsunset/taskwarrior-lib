@@ -68,7 +68,7 @@ export declare type Task = {
 	parent?: string,
 	project?: string,
 	priority?: TaskPriority,
-	depends?: string,
+	depends?: string[],
 	tags?: string[],
 	annotations?: TaskAnnotation[]
 }
