@@ -1,4 +1,4 @@
-import { TaskwarriorLib } from '../lib';
+import { TaskwarriorLib, TaskError } from '../lib';
 import * as path from 'path';
 
 const taskwarrior = new TaskwarriorLib(
@@ -31,6 +31,27 @@ try {
 	process.exit(1);
 }
 catch (err) {
+	if (!(err instanceof TaskError))
+		process.exit(1);
+	console.log(err)
+}
+
+try {
+	// Must throw
+	taskwarrior.update([
+		{
+			description: 'test 2',
+			due: 'now+1d',
+			recur: 'now+1d',
+			priority: 'M'
+		}
+	]);
+	process.exit(1);
+}
+catch (err) {
+	if (!(err instanceof TaskError))
+		process.exit(1);
+	console.log(err)
 }
 
 // Load tasks
