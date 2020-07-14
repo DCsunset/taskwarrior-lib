@@ -43,7 +43,7 @@ export declare class TaskwarriorLib {
 export declare class TaskError extends Error {
 }
 
-export declare type TaskStatus = 'pending' | 'deleted' | 'completed' | 'recurring'
+export declare type TaskStatus = 'pending' | 'waiting' | 'deleted' | 'completed' | 'recurring'
 
 export declare type TaskAnnotation = {
 	entry: string,
