@@ -60,7 +60,7 @@ const tasks = taskwarrior.load('status:pending');
 console.log(tasks);
 ```
 
-To update tasks:
+To modify tasks:
 
 ```js
 const task = tasks[tasks.length - 1];
