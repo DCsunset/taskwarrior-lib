@@ -7,17 +7,13 @@ const taskwarrior = new TaskwarriorLib(
 );
 
 // Add tasks
-// let msg = taskwarrior.update([
-// 	{
-// 		description: 'test 1',
-// 		priority: 'L'
-// 	},
-// 	{
-// 		description: 'test 2',
-// 		priority: 'M'
-// 	}
-// ]);
-// console.log(msg);
+const newTasks = new Array(16);
+newTasks.fill({
+	description: 'test',
+	priority: 'L'
+})
+let msg = taskwarrior.update(newTasks);
+console.log(msg);
 
 try {
 	// Must throw
@@ -68,4 +64,4 @@ console.log(msg);
 */
 
 // Delete tasks
-// taskwarrior.del(tasks.slice(tasks.length - 1));
+taskwarrior.del(tasks.slice(tasks.length - 1));
