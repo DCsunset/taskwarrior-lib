@@ -23,6 +23,7 @@ export class TaskwarriorLib {
 		try {
 			const result = execSync(`${this.env} task rc.confirmation=no rc.recurrence.confirmation=no rc.dependency.confirmation=no rc.json.depends.array=yes rc.bulk=0 ${args}`, {
 				encoding: 'utf8',
+				maxBuffer: 200 * 1024 * 1024,
 				input
 			});
 			return result;
