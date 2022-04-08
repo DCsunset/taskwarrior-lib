@@ -1,5 +1,5 @@
 import { execSync } from 'child_process';
-import { Task } from '../types';
+import { Task, TaskRc, TaskRcItem } from '../types';
 
 export class TaskError extends Error {
 }
@@ -62,6 +62,34 @@ export class TaskwarriorLib {
 		if (result && result.charAt(0) !== 'P') {
 			throw new TaskError(`Invalid period string '${period}'`);
 		}
+	}
+
+	/**
+	 * Parse TaskWarrior configuration.
+	 */
+	config() {
+		const result = this.executeCommand("_show");
+		const config: TaskRc = {};
+		if (result) {
+			for (const line of result.split('\n')) {
+				var separator = line.indexOf("=");
+				const [key, value] = [
+					line.substr(0, separator),
+					line.substr( separator + 1)
+				];
+				const path = key.split(".");
+				let obj = config;
+				for (let i = 0; i < path.length - 1; ++i) {
+					const objKey = path[i] + '.';
+					if (!obj[objKey]) {
+						obj[objKey] = {};
+					}
+					obj = obj[objKey] as TaskRc;
+				}
+				obj[path[path.length - 1]] = value;
+			}
+		}
+		return config;
 	}
 
 	/**
