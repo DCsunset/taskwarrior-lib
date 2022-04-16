@@ -6,6 +6,9 @@ const taskwarrior = new TaskwarriorLib(
 	path.join(__dirname, '.task')
 );
 
+const config = taskwarrior.config();
+console.log(config);
+
 // Add tasks
 const newTasks = new Array(16);
 newTasks.fill({

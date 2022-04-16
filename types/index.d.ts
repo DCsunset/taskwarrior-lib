@@ -19,6 +19,11 @@ export declare class TaskwarriorLib {
 	calc(expression?: string): string | undefined;
 
 	/**
+	 * Parse TaskWarrior configuration.
+	 */
+	config() : TaskRc;
+
+	/**
 	 * Load from taskwarrior
 	 */
 	load(filters?: string): Task[];
@@ -42,6 +47,10 @@ export declare class TaskwarriorLib {
 
 export declare class TaskError extends Error {
 }
+
+export type TaskRc = { [key: string]: TaskRcItem };
+
+export type TaskRcItem = {[key: string] : TaskRcItem} | string;
 
 export declare type TaskStatus = 'pending' | 'waiting' | 'deleted' | 'completed' | 'recurring'
 
