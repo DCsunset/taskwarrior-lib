@@ -12,7 +12,9 @@ export class TaskwarriorLib {
 	private env: string;
 
 	constructor(rcPath?: string, dataPath?: string) {
-		this.env = `TASKRC=${rcPath ?? '~/.taskrc'} TASKDATA=${dataPath ?? '~/.task'}`;
+		const rcEnv = rcPath ? `TASKRC=${rcPath}` : "";
+		const dataEnv = dataPath ? `TASKDATA=${dataPath}` : "";
+		this.env = `${rcEnv} ${dataEnv}`;
 	}
 
 	/**
