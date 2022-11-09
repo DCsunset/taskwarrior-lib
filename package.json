@@ -6,7 +6,7 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "test": "ts-node test/test.ts",
-    "build": "rm -r dist && tsc"
+    "build": "rm -rf dist && tsc"
   },
   "files": [
     "dist/*",
